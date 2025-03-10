@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { BannerComponent } from './banner/banner.component';
 
 @Component({
   selector: 'app-welcome',
-  imports: [],
+  standalone: true,
+  imports: [BannerComponent],
   templateUrl: './welcome.component.html',
-  styleUrl: './welcome.component.scss'
+  styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
 
