@@ -1,5 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+/* inspired form gumroad website */
+.button {
+  --bg: #000;
+  --hover-bg: #ff90e8;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid ;
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+}
+
+.button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem #f4f4f5;
+}
+
+.button:active {
+  transform: translate(0);
+  box-shadow: none;
+}
 
 .banner {
   position: relative;
@@ -180,13 +206,13 @@
       bottom: 0;
       padding: 0 4%;
     }
-    
+
     &__description {
       width: 100%;
       max-width: 100%;
       font-size: 1rem;
     }
-    
+
     &__title {
       font-size: 2.5rem;
       max-width: 100%;
@@ -204,7 +230,7 @@
 
     &__navigation {
       opacity: 1;
-      
+
       .nav-btn {
         height: 45px;
         width: 45px;

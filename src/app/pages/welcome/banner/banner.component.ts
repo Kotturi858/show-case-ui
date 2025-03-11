@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 interface Movie {
   title: string;
   description: string;
-  imageUrl: string;
 }
 
 @Component({
@@ -12,13 +11,13 @@ interface Movie {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+  styleUrls: ['./banner.component.scss'],
 })
 export class BannerComponent implements OnInit, OnDestroy {
   images: string[] = [
     '../../../../assets/wallhaven-p2q5dj_3840x2160.png',
-    '../../../../assets/wallhaven-p2qlqe_3840x2160.png',
-    '../../../../assets/wallhaven-p8pzjm_3840x2160.png'
+    '../../../../assets/wallhaven-0wj16n_1920x1080.png',
+    '../../../../assets/wallhaven-p8pzjm_3840x2160.png',
   ];
 
   currentIndex = 0;
@@ -26,25 +25,19 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   movies: Movie[] = [
     {
-      title: 'Stranger Things',
-      description: 'When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.',
-      imageUrl: 'https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABer7SeWc6FvkBqWtk61GwL7rshAEVCOARQZVTEJGnLXykYBlO4nbbr6gs7M650BjULuaN6hucXKr5xY2iqPE6yHQR3o6.jpg?r=608'
+      title: 'Anime',
+      description: 'The whole verse of anime has started with Goku.',
     },
     {
-      title: 'The Witcher',
-      description: 'Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.',
-      imageUrl: 'https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABYCXCfVkAJjwuoqPh6xLKqyGhwwG1zKGc3xyBqo0P3o9Qj5fvUGOxY1OyIGAXoUHVVgTQrK2YUXp1T5oVwEjWxRZHyg5.jpg?r=dc7'
+      title: 'Avengers',
+      description: 'Avengers are united to save the world from Thanos.',
     },
     {
-      title: 'Wednesday',
-      description: 'Smart, sarcastic and a little dead inside, Wednesday Addams investigates a murder spree while making new friends — and foes — at Nevermore Academy.',
-      imageUrl: 'https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXvHfHk1WTp79m9e1KhDZKE2FXUUbxG4hpJ5VWYzqrFYrBHiGX_3GHF-VxALEXgT3cNrT3pT5ZXBwELmXgFkNnxb0K8D.jpg?r=f54'
-    }
+      title: 'Abstract',
+      description:
+        'People like abstract art because it makes them feel clever.',
+    },
   ];
-
-  // get images(): string[] {
-  //   return this.movies.map(movie => movie.imageUrl);
-  // }
 
   get currentMovie(): Movie {
     return this.movies[this.currentIndex];
@@ -59,7 +52,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   previousImage() {
-    this.currentIndex = (this.currentIndex - 1 + this.movies.length) % this.movies.length;
+    this.currentIndex =
+      (this.currentIndex - 1 + this.movies.length) % this.movies.length;
     this.resetAutoPlay();
   }
 
@@ -71,7 +65,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   private startAutoPlay() {
     this.autoPlayInterval = setInterval(() => {
       this.nextImage();
-    }, 3000);
+    }, 4000);
   }
 
   private stopAutoPlay() {
