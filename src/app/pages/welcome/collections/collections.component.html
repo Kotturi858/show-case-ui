@@ -1,1 +1,27 @@
-<p>collections works!</p>
+<div class="categories-container">
+  <div class="categories-header">
+    <h2>Explore Collections</h2>
+    <p>Discover stunning wallpapers across various categories</p>
+  </div>
+
+  <div class="categories-row">
+    @for(collection of collections; track collection.id) {
+    <div class="category-card">
+      <div class="category-image-container">
+        <img
+          [src]="collection.imageUrl"
+          [alt]="collection.name"
+          class="category-image"
+        />
+        <div class="category-overlay">
+          <div class="category-content">
+            <h3>{{ collection.name }}</h3>
+            <p>{{ collection.description }}</p>
+            <button class="explore-button">Explore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -38,7 +38,6 @@ export class NavbarComponent {
   onSearch() {
     if (this.searchQuery.trim()) {
       console.log('Searching for:', this.searchQuery);
-      // Implement search functionality
     }
   }
 }
