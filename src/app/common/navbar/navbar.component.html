@@ -1,0 +1,92 @@
+<nav class="navbar" role="navigation">
+  <div class="navbar-container d-flex justify-content-around">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <a routerLink="/" aria-label="Home">
+        <img src="assets/wallpaper_logo.jpg" alt="Wallpaper App" class="logo">
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="desktop-menu">
+      <div class="categories">
+        <ng-container *ngFor="let category of categories">
+          <a [routerLink]="['/category', category.toLowerCase()]" 
+             class="category-link"
+             [attr.aria-label]="category + ' wallpapers'">
+            {{category}}
+          </a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-section">
+      <div class="search-container">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (keyup.enter)="onSearch()"
+          placeholder="Search wallpapers..."
+          class="search-input"
+          aria-label="Search wallpapers"
+        >
+        <button class="search-button" (click)="onSearch()" aria-label="Search">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- User Actions -->
+    <div class="user-actions">
+      <a routerLink="/favorites" class="action-button" aria-label="Favorites">
+        <fa-icon [icon]="faHeart"></fa-icon>
+      </a>
+      <a routerLink="/profile" class="action-button" aria-label="Profile">
+        <fa-icon [icon]="faUser"></fa-icon>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      class="mobile-menu-button" 
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu">
+      <fa-icon [icon]="isMobileMenuOpen ? faTimes : faBars"></fa-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    id="mobile-menu"
+    class="mobile-menu" 
+    [class.active]="isMobileMenuOpen"
+    role="menu"
+    [attr.aria-hidden]="!isMobileMenuOpen">
+    <div class="mobile-search">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        (keyup.enter)="onSearch()"
+        placeholder="Search wallpapers..."
+        aria-label="Search wallpapers in mobile menu"
+      >
+      <button (click)="onSearch()" aria-label="Search">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+    </div>
+    <nav class="mobile-categories">
+      <ng-container *ngFor="let category of categories">
+        <a [routerLink]="['/category', category.toLowerCase()]" 
+           (click)="toggleMobileMenu()"
+           class="mobile-category-link"
+           role="menuitem"
+           [attr.aria-label]="category + ' wallpapers'">
+          {{category}}
+        </a>
+      </ng-container>
+    </nav>
+  </div>
+</nav>
