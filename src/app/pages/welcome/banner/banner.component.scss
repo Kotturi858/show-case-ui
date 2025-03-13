@@ -75,14 +75,15 @@
   }
 
   &__title {
+    font-family: "Bungee Shade", sans-serif;
     font-size: 3.5rem;
-    font-weight: 800;
     padding-bottom: 0.3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     max-width: 600px;
   }
 
   &__description {
+    font-family: "Poppins", sans-serif;
     width: 45rem;
     line-height: 1.4;
     padding-top: 1rem;
@@ -215,6 +216,7 @@
     }
 
     &__button {
+      font-family: "Poppins", sans-serif;
       font-size: 1rem;
       padding: 0.6rem 1.5rem;
       min-width: 120px;
