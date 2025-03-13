@@ -1,1 +1,23 @@
-<p>categories works!</p>
+<div class="categories-container">
+  <div class="categories-header">
+    <h2>Explore Categories</h2>
+    <p>Discover stunning wallpapers across various categories</p>
+  </div>
+  
+  <div class="categories-row">
+    @for(category of categories; track category.id) {
+      <div class="category-card">
+        <div class="category-image-container">
+          <img [src]="category.imageUrl" [alt]="category.name" class="category-image">
+          <div class="category-overlay">
+            <div class="category-content">
+              <h3>{{ category.name }}</h3>
+              <p>{{ category.description }}</p>
+              <button class="explore-button">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
