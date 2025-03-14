@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 interface FoodItem {
   id: number;
@@ -14,12 +16,17 @@ interface FoodItem {
 @Component({
   selector: 'app-display-room',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, InfiniteScrollModule],
   templateUrl: './display-room.component.html',
   styleUrls: ['./display-room.component.scss'],
 })
-export class DisplayRoomComponent {
+export class DisplayRoomComponent implements OnInit {
   faArrowRight = faArrowRight;
+
+  wallpapers: string[] = []; // Store pre-signed URLs
+  page = 1;
+  limit = 10; // Number of images per request
+  loading = false;
 
   title = 'Food photo for Culinary Artists';
   subtitle = 'to make their products more stand out';
@@ -320,5 +327,28 @@ export class DisplayRoomComponent {
       category: 'Beverage',
     },
   ];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.loadWallpapers();
+  }
+
+  loadWallpapers() {
+    if (this.loading) return;
+    this.loading = true;
+
+    this.http.get<{ presignedUrls: string[] }>(
+      `http://localhost:3000/get-wallpapers?page=${this.page}&limit=${this.limit}`
+    ).subscribe(response => {
+      this.wallpapers.push(...response.presignedUrls);
+      this.page++;
+      this.loading = false;
+    });
+  }
+
+  onScroll() {
+    this.loadWallpapers();
+  }
   
 }

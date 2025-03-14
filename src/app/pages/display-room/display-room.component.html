@@ -10,11 +10,11 @@
     </button>
   </div>
 
-  <div class="masonry">
+  <div class="masonry" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
     <img
-      *ngFor="let item of foodItems"
-      [src]="item.imageUrl"
-      [alt]="item.name"
+      *ngFor="let item of wallpapers"
+      [src]="item"
+      [alt]="item"
       class="food-image"
       loading="lazy"
     />

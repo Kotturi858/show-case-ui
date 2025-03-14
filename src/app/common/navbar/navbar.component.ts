@@ -25,10 +25,9 @@ export class NavbarComponent {
   categories = [
     'Nature',
     'Abstract',
-    'Minimalist',
-    'Dark',
     'Anime',
-    'Space'
+    'Space',
+    'Avengers'
   ];
 
   toggleMobileMenu() {
