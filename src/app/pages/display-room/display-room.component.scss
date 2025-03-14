@@ -1,0 +1,81 @@
+
+// Main container
+.display-room-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 1rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Content section
+.content-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 90%;
+  }
+  
+  .cta-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: fit-content;
+    
+    &:hover {
+      background-color: #1b5e20;
+    }
+    
+    fa-icon {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.masonry {
+  column-count: 4; /* Number of columns */
+  column-gap: 10px;
+}
+.masonry img {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}

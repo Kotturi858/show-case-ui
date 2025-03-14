@@ -1,0 +1,23 @@
+<div class="display-room-container">
+  <div class="content-section">
+    <h1 class="title">{{ title }}</h1>
+    <h2 class="subtitle">{{ subtitle }}</h2>
+    <p class="description">{{ description }}</p>
+
+    <button class="cta-button">
+      Learn more
+      <fa-icon [icon]="faArrowRight"></fa-icon>
+    </button>
+  </div>
+
+  <div class="masonry">
+    <img
+      *ngFor="let item of foodItems"
+      [src]="item.imageUrl"
+      [alt]="item.name"
+      class="food-image"
+      loading="lazy"
+    />
+  </div>
+</div>
+
