@@ -23,9 +23,9 @@ interface FoodItem {
 export class DisplayRoomComponent implements OnInit {
   faArrowRight = faArrowRight;
 
-  wallpapers: string[] = []; // Store pre-signed URLs
+  wallpapers: string[] = [];
   page = 1;
-  limit = 10; // Number of images per request
+  limit = 10;
   loading = false;
 
   title = 'Food photo for Culinary Artists';
