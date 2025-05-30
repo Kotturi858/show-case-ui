@@ -57,3 +57,35 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Features
+
+### Netflix-Style Banner
+
+- **Dynamic Movie Content**: Displays movie information with title, description, and images
+- **Visual Design**: Bottom-aligned content with Netflix-style gradient overlays
+- **Auto-play Carousel**: Transitions between featured content every 5 seconds
+- **Manual Navigation**: Previous/next buttons with hover effects
+- **Responsive Design**: Optimized for various screen sizes
+
+### ngOptimizedImage
+
+This project leverages Angular's `ngOptimizedImage` directive for optimized image loading and display.
+
+#### Benefits of ngOptimizedImage
+
+| Feature | Description |
+| ------- | ----------- |
+| Lazy Loading | Automatically applies `loading="lazy"` to non-critical images |
+| Layout Shift Prevention | Enforces `width` and `height` attributes to prevent Cumulative Layout Shift (CLS) |
+| Responsive Images | Simplified responsive image implementation with `ngSrcset` |
+| Format Optimization | Automatic format selection when used with image CDNs |
+| Performance Warnings | Build-time warnings for missing attributes or optimization opportunities |
+
+#### Performance Improvements
+
+- **Faster Page Loads**: Reduced image file sizes and optimized loading strategies
+- **Better SEO and UX**: Improved Core Web Vitals scores through reduced CLS and faster LCP
+- **Developer Experience**: Less manual configuration with automatic best practices
+
+For more information on `ngOptimizedImage`, visit the [Angular Image Optimization documentation](https://angular.dev/guide/image-optimization).
